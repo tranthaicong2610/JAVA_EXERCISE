@@ -190,13 +190,15 @@ public class View {
                     System.out.println("moi ban nhap mieu ta :");
                     String description = scanner.nextLine();
                     withdrawMoneyImp.withdrawMoney(list,accountHistories,id2,soTienRut,description);
+                    writeFile.writeToFile(list,"C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
                     break;
                 case 8:
                     int id3 = checkInteger("ban nhap id muon nap tien :");
                     double soTienNap = checkDouble("ban nhap so tien muon nap :");
                     System.out.println("moi ban nhap mieu ta :");
                     String description1 = scanner.nextLine();
-                     rechargeImp.rechargeMoney(list,accountHistories,id3,soTienNap,description1);
+                    rechargeImp.rechargeMoney(list,accountHistories,id3,soTienNap,description1);
+                    writeFile.writeToFile(list,"C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
                     break;
                 case 9:
                     System.out.println("1: Cho phep nhap Account luu vao file");
