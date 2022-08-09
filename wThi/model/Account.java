@@ -12,6 +12,7 @@ public class Account implements Serializable {
 
 
     public Account() {
+        this.ID = intercreament++;
     }
 
     public Account(String fullName, String accountNumber, double amount) {
@@ -22,7 +23,7 @@ public class Account implements Serializable {
     }
 
     public String getFullName() {
-        this.ID = intercreament++;
+
         return fullName;
     }
 

@@ -49,7 +49,7 @@ public class View {
                 number = Double.parseDouble(scanner.nextLine());
                 break;
             } catch (Exception e) {
-                System.out.println("Invalid input, please enter integer");
+                System.out.println("ban nhap sai gia tri can truyen ");
             }
         } while (true);
         return number;
@@ -106,6 +106,12 @@ public class View {
 
     public static void main(String[] args) {
         boolean ok = true;
+        String pathAccount ,pathAccountHistory;
+        System.out.println("nhap duong dan file luu Account :");
+        pathAccount = scanner.nextLine();
+        System.out.println("nhap duong dan file luu History Account");
+        pathAccountHistory = scanner.nextLine();
+        
 
         System.out.println("1: Cho phep nhap Account luu vao file");
         System.out.println("2: In ra màn hình danh sách Account (đọc từ file vừa tạo) :");
@@ -139,7 +145,8 @@ public class View {
         WithdrawMoneyImp withdrawMoneyImp = new WithdrawMoneyImp();
         ReadFileHistoryImp readFileHistoryImp = new ReadFileHistoryImp();
         RechargeImp rechargeImp = new RechargeImp();
-        writeFile.writeToFile(list, "C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
+
+        writeFile.writeToFile(list,pathAccount );//pathAccount
 //        ArrayList<Account> list1 = readFileImp.readDataFromFile("C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
 //        for (Account item : list1) {
 //            System.out.println(item);
@@ -154,10 +161,10 @@ public class View {
                     String accountNumber = inputString("moi ban nhap tai khoan :", "^[0-9]+");
                     double amount = checkDouble("moi ban nhap so tien :");
                     list.add(new Account(name, accountNumber,amount));
-                    writeFile.writeToFile(list,"C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
+                    writeFile.writeToFile(list,pathAccount);
                     break;
                 case 2:
-                    displayImp.display("C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
+                    displayImp.display(pathAccount);
                     break;
                 case 3:
                     int id = checkInteger("moi ban nhap id :");
@@ -166,14 +173,15 @@ public class View {
                     String accountNumber1 = inputString("moi ban nhap tai khoan :", "^[0-9]+");
                     double amount1 = checkDouble("moi ban nhap so tien :");
                     editImp.edit(list,id,new Account(name1,accountNumber1,amount1));
-                    writeFile.writeToFile(list,"C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
+                    writeFile.writeToFile(list,pathAccount);
                     break;
                 case 4:
                     int id1 = checkInteger("ban nhap id can  xoa :");
                     deleteImp.delete(list,id1);
+                    writeFile.writeToFile(list,pathAccount);
                     break;
 
-//                    ArrayList<Account> list1 = readFileImp.readDataFromFile("C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
+//                    ArrayList<Account> list1 = readFileImp.readDataFromFile(pathAccount);
 //                    for (Account item : list1) {
 //                        System.out.println(item);
 //                    }
@@ -189,16 +197,16 @@ public class View {
                     double soTienRut = checkDouble("ban nhap so tien muon rut :");
                     System.out.println("moi ban nhap mieu ta :");
                     String description = scanner.nextLine();
-                    withdrawMoneyImp.withdrawMoney(list,accountHistories,id2,soTienRut,description);
-                    writeFile.writeToFile(list,"C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
+                    withdrawMoneyImp.withdrawMoney(list,accountHistories,id2,soTienRut,description,pathAccountHistory);
+                    writeFile.writeToFile(list,pathAccount);
                     break;
                 case 8:
                     int id3 = checkInteger("ban nhap id muon nap tien :");
                     double soTienNap = checkDouble("ban nhap so tien muon nap :");
                     System.out.println("moi ban nhap mieu ta :");
                     String description1 = scanner.nextLine();
-                    rechargeImp.rechargeMoney(list,accountHistories,id3,soTienNap,description1);
-                    writeFile.writeToFile(list,"C:\\Users\\congtt15\\IdeaProjects\\untitled\\src\\wThi\\File\\input.txt");
+                    rechargeImp.rechargeMoney(list,accountHistories,id3,soTienNap,description1 ,pathAccountHistory);
+                    writeFile.writeToFile(list,pathAccount);
                     break;
                 case 9:
                     System.out.println("1: Cho phep nhap Account luu vao file");
@@ -214,6 +222,7 @@ public class View {
                     break;
                 case 10:
                     ok=false;
+                    break;
 
 
 

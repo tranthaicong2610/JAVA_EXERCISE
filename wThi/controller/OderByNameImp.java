@@ -17,7 +17,6 @@ public class OderByNameImp implements OderByName {
                 String[] name2 = o2.getFullName().split(" ");
                 int len1= name1.length-1;
                 int len2 = name2.length-1;
-
                 return name1[len1].toUpperCase().compareTo(name2[len2].toUpperCase());
             }
         });
