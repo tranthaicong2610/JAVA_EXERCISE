@@ -33,6 +33,7 @@ public class Main {
         System.out.println(search.searchBinary(arr1,0,n1-1,15));
         System.out.println("nhap chuoi can xu ly :");
         scanner.nextLine();
+        // chuoi con tang dai nhat
         String s2= scanner.nextLine();
         ChuoiConTangDaiNhat c = new ChuoiConTangDaiNhat();
         System.out.println(c.resolt(s2));
